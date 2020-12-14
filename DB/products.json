@@ -1,6 +1,0 @@
-{"_id":{"$oid":"5fac16d9cc58f92b0c67c7e1"},"name":"Hamburgesa","precio":"23","categoria":"food","img":"http://localhost:4000/public/UB0QUp9k2.jpeg","__v":0}
-{"_id":{"$oid":"5fac1761cc58f92b0c67c7e2"},"name":"rollos de canela","precio":"12","categoria":"food","img":"http://localhost:4000/public/F5SNGJLyd.jpeg","__v":0}
-{"_id":{"$oid":"5fac1820cc58f92b0c67c7e3"},"name":"papas","precio":"12","categoria":"market","img":"http://localhost:4000/public/YYIdVmC1z.jpeg","__v":0}
-{"_id":{"$oid":"5fac1999cc58f92b0c67c7e4"},"name":"brocoli","precio":"10","categoria":"market","img":"http://localhost:4000/public/DF-UP9RpE.jpeg","__v":0}
-{"_id":{"$oid":"5fac1a00cc58f92b0c67c7e5"},"name":"vitaminas","precio":"23","categoria":"various","img":"http://localhost:4000/public/SdvTrryRC.jpeg","__v":0}
-{"_id":{"$oid":"5fac1a65cc58f92b0c67c7e6"},"name":"calamina","precio":"45","categoria":"various","img":"http://localhost:4000/public/2vnQnn6X8.jpeg","__v":0}
