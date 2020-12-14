@@ -1,0 +1,4 @@
+{"_id":{"$oid":"5f8f907607837300b4c4cb3d"},"name":"arnoldo jose","email":"arnoldoJose@gmail.com","mobile":"12345678","password":"$2b$10$ezNfwP3ROJCp30yDSZG6WequFlPVYslUHMoUJdZu4y0TorFU3TmkK","__v":0}
+{"_id":{"$oid":"5f907287a2e7f11220a74b12"},"name":"roberto agilera","email":"rob@gmail.com","mobile":"12345","password":"$2b$10$GON/6CJD1O8Bi3u0QJR3w.452Jll51XFrlruRedjv806g0lcioC5.","__v":0}
+{"_id":{"$oid":"5f9b77efae1b1222640755dd"},"name":"prueba","email":"prueba@prueba.com","mobile":"12345","password":"$2b$10$bczGc73zGFwCQ2ASppCW8./IPypjyKqm/7BN3B3PNu5sRZ.O4BooG","__v":0}
+{"_id":{"$oid":"5fb5b1bd10229e1974e637e7"},"name":"admin","email":"admin@admin.com","mobile":"12345","password":"$2b$10$O3FJdzACPau9UKaL9lM9nelgXAIX0ndYkU8R3hWhp1.pXIGqcDwMy","rol":"admin","__v":0}
