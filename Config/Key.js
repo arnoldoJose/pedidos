@@ -1,4 +1,5 @@
 
 module.exports = {
-  key: "mongodb://localhost:27017/pedidos",
+  key:
+    "mongodb+srv://admin:KIsfF1iMzoTVh35g@pedidos.ybdnl.mongodb.net/<dbname>?retryWrites=true&w=majority",
 };
