@@ -15,7 +15,7 @@ const auth = require("../Middleware/AUTH");
 // const consultRol = require("../Middleware/Rules");
 
 route.get("/", auth, (req, res) => {
-  res.json({ message: "token valido" });
+  res.json({ message: "token invalido" });
 });
 
 route.post("/user-register", (req, res) => {
