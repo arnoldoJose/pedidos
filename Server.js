@@ -6,17 +6,21 @@ const session = require('express-session');
 const key = require('./Config/Key');
 const Cors = require('cors');
 require('./Config/config');
+require('dotenv').config({path: 'variables.env'});
 
 app.use(Cors())
 
-mongoose.connect(key.key, {useNewUrlParser: true,useCreateIndex: true,}
-  ,(err) => {
+mongoose.connect(
+  process.env.DB_URL,
+  { useNewUrlParser: true, useCreateIndex: true },
+  (err) => {
     if (!err) {
-      console.log('MongoDB Connection Succeeded.')
+      console.log("MongoDB Connection Succeeded.");
     } else {
-        console.log('Error in DB connection: ' + err)
+      console.log("Error in DB connection: " + err);
     }
-  });
+  }
+);
   app.use(session({
     secret: 'secret',
     resave: false,
