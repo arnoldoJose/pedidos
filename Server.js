@@ -8,7 +8,7 @@ const Cors = require('cors');
 require('./Config/config');
 require('dotenv').config({path: 'variables.env'});
 
-app.use(Cors())
+app.use(Cors());
 
 mongoose.connect(
   process.env.DB_URL,
