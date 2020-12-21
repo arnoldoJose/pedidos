@@ -9,10 +9,9 @@ const fileUp = require("express-fileupload");
 const  rol = require('../Middleware/Rules');
 const verificaToken = require('../Middleware/AUTH');
 
-route.use(fileUp());
 require("../Config/config");
-const auth = require("../Middleware/AUTH");
-// const consultRol = require("../Middleware/Rules");
+route.use(fileUp());
+
 
 route.get("/", (req, res) => {
   res.json({ message: "token invalido" });
