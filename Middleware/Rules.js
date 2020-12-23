@@ -8,7 +8,7 @@ let consultRol = (req,res,next) => {
   if (rol === "ADMIN_ROLE") {
     next();
   } else {
-    res.json({ message: "No eres administardor",rol: rol });
+    res.json({ message: "No eres administardor",});
   }
 
 }
