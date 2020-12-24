@@ -43,7 +43,7 @@ route.post("/user-login", (req, res) => {
     if (!userDB) {
       res.status(401).json({
         err: true,
-        message: "el usuario o password no existe",
+        message: "el usuario  no existe",
       });
       return;
     }
@@ -51,7 +51,7 @@ route.post("/user-login", (req, res) => {
     if (!userDB.validatePassword(password)) {
       res.status(401).json({
         err: true,
-        message: "el usuario o password no existe",
+        message: "el password no existe",
       });
       return;
     } else {
