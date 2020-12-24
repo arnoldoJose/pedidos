@@ -123,7 +123,7 @@ let uploadFile  = (file,name) => {
 
 }
 
-route.post("/add-product", (req, res) => {
+route.post("/add-product", [verificaToken,rol] ,(req, res) => {
   let { name, precio, categoria } = req.body;
 
   let extencion = req.files.imagen.mimetype.split("/")[1];
