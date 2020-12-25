@@ -113,8 +113,8 @@ route.get("/obtener/producto/:id", async(req,res)=>{
 
 // subir el archivo
 
-let uploadFile  = (file,name) => {
-
+let uploadFile  = (file,name,res) => {
+//el parametro res no existe pasarlo desde la ruta add product
   file.mv(`Upload/${name}`,(err) => {
     if(err){
       res.status(400).json({err: "error"});
@@ -137,7 +137,7 @@ route.post("/add-product", [verificaToken,rol] ,(req, res) => {
 
   product.save();
 
-  uploadFile(req.files.imagen, nameFile);
+  uploadFile(req.files.imagen, nameFile,res);
 });
 
 
