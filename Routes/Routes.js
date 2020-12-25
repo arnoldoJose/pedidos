@@ -117,7 +117,7 @@ let uploadFile  = (file,name,res) => {
 //el parametro res no existe pasarlo desde la ruta add product
   file.mv(`Upload/${name}`,(err) => {
     if(err){
-      res.status(400).json({err: "error"});
+      res.status(400).json({err: `${err}`});
     }
   })
 
