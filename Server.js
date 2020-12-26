@@ -12,9 +12,11 @@ require('dotenv').config({path: 'variables.env'});
 app.use(Cors());
 
 
-fs.mkdir("uploads",err => {
-  console.log("nc puede"+" "+err);
-})
+if(fs.existsSync(`${__dirname}/Upload`)){
+console.log("existe");
+}else{
+  console.log("no existe");
+}
 
 
 mongoose.connect(
