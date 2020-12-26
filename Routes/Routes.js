@@ -116,18 +116,21 @@ route.get("/obtener/producto/:id", async(req,res)=>{
 
 let uploadFile  = (file,name,res) => {
 
+   Fs.mkdir("Upload", (err) => {
+     return res.status(401).json({ err: "el directirio no se creo" });
+   });
 
-  if(!Fs.existsSync("Upload")){
-    Fs.mkdir("Upload", (err) => {
-    return res.status(401).json({ err: "el directirio no se creo" });
-    });
-  }
+  // if(!Fs.existsSync("Upload")){
+  //   Fs.mkdir("Upload", (err) => {
+  //   return res.status(401).json({ err: "el directirio no se creo" });
+  //   });
+  // }
 
-  file.mv(`uploads/${name}`,(err) => {
-    if(err) {
-      return res.status(401).json({err : `${err}`});
-    }
-  })
+  // file.mv(`uploads/${name}`,(err) => {
+  //   if(err) {
+  //     return res.status(401).json({err : `${err}`});
+  //   }
+  // })
 }
 
 route.post("/add-product", [verificaToken,rol] ,(req, res) => {
