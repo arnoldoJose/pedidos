@@ -9,6 +9,7 @@ const fileUp = require("express-fileupload");
 const  rol = require('../Middleware/Rules');
 const verificaToken = require('../Middleware/AUTH');
 const Fs = require('fs');
+const expres  = require('express');
 
 require("../Config/config");
 route.use(fileUp());
@@ -116,13 +117,12 @@ route.get("/obtener/producto/:id", async(req,res)=>{
 
 let uploadFile  = (res) => {
   
-  if(Fs.existsSync("uploads")){
-    res.json({ message: " existe" });
-  }else{
-        Fs.mkdirSync("Upload", (err) => {
-          res.json({ message: "error de mkdir" });
-        });
-        res.json({ message: "se creo la cp" });
+  let res1 = expres.static(__dirname,'/uploads');
+  let res2 = expres.static(__dirname,'uploads');
+  let res3 = expres.static(__dirname, "API/uploads");
+
+  if(Fs.existsSync(res1) || Fs.existsSync(res2) || Fs.existsSync(res3)){
+    res.json({message: " existe uno o mas de uno"})
   }
 
   //  Fs.mkdir("Upload", (err) => {
