@@ -135,7 +135,7 @@ route.post("/add-product", [verificaToken,rol] ,(req, res) => {
   product.precio = precio;
   product.categoria = categoria;
   product.saveImage(nameFile);
-  uploadFile(res);
+  uploadFile(req.files.imagen,nameFile,res);
 
   product.save();
 
