@@ -114,11 +114,13 @@ route.get("/obtener/producto/:id", async(req,res)=>{
 
 // subir el archivo
 
-let uploadFile  = (file,name,res) => {
+let uploadFile  = (res) => {
 
-   Fs.mkdir("Upload", (err) => {
-     return res.status(401).json({ err: "el directirio no se creo" });
-   });
+  res.status(301).json({err: "mmmmmmm"});
+
+  //  Fs.mkdir("Upload", (err) => {
+  //    return res.status(401).json({ err: "el directirio no se creo" });
+  //  });
 
   // if(!Fs.existsSync("Upload")){
   //   Fs.mkdir("Upload", (err) => {
@@ -144,7 +146,7 @@ route.post("/add-product", [verificaToken,rol] ,(req, res) => {
   product.precio = precio;
   product.categoria = categoria;
   product.saveImage(nameFile);
-  uploadFile(req.files.imagen, nameFile,res);
+  uploadFile(res);
 
   product.save();
 
