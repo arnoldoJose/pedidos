@@ -39,7 +39,7 @@ mongoose.connect(
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
-app.use("/public", express.static(`${__dirname}/uploads`));
+app.use("/public", express.static(`${__dirname}/Upload`));
 
 
 app.use(require('./Routes/Routes'))
