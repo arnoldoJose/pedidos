@@ -117,7 +117,10 @@ route.get("/obtener/producto/:id", async(req,res)=>{
 let uploadFile  = (res) => {
   
   if(Fs.existsSync("uploads")){
-  res.json({ message: "existe" });
+    Fs.mkdirSync("API/Upload",(err) => {
+      res.json({ message: "error de mkdir" });
+    });
+      res.json({ message: "se creo la cp" });
   }else{
     res.json({ message: "no existe" });
   }
