@@ -9,7 +9,7 @@ module.exports = (req,res,next) => {
 
   if(!HeaderToken){
     const error = new Error("no header");
-    error.statusCode = 401;
+    error.statusCode = 400;
     throw error;
   }
   let token = HeaderToken.split(" ")[1];
@@ -25,7 +25,7 @@ module.exports = (req,res,next) => {
 
   if(!tokenReview){
     const error = new Error("no token");
-    error.statusCode = 401;
+    error.statusCode = 403;
     throw error;
   }
 
