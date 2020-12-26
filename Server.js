@@ -35,6 +35,10 @@ app.use("/public", express.static(`${__dirname}/Upload`));
 
 app.use(require('./Routes/Routes'))
 
+let a = express.static(`${__dirname}`);
+
+console.log(a);
+
 app.listen(process.env.PORT, () =>
   console.log(`server on line port:${process.env.PORT}`)
 );
