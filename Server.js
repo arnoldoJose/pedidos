@@ -30,14 +30,11 @@ mongoose.connect(
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
-app.use("/public", express.static(`${__dirname}/Upload`));
+app.use("/public", express.static(`${__dirname}/uploads`));
 
 
 app.use(require('./Routes/Routes'))
 
-let a = express.static(`${__dirname}/Upload`);
-
-
 app.listen(process.env.PORT, () =>
-  console.log(`server on line port:${process.env.PORT}${a}`)
+  console.log(`server on line port:${process.env.PORT}`)
 );

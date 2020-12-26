@@ -114,13 +114,12 @@ route.get("/obtener/producto/:id", async(req,res)=>{
 // subir el archivo
 
 let uploadFile  = (file,name,res) => {
-//el parametro res no existe pasarlo desde la ruta add product
-  file.mv(`/Upload/${name}`,(err) => {
-    if(err){
-      res.status(400).json({err: `${err}`});
+
+  file.mv(`uploads/${name}`,(err) => {
+    if(err) {
+      return res.status(401).json({err : `${err}`});
     }
   })
-
 }
 
 route.post("/add-product", [verificaToken,rol] ,(req, res) => {
@@ -134,10 +133,10 @@ route.post("/add-product", [verificaToken,rol] ,(req, res) => {
   product.precio = precio;
   product.categoria = categoria;
   product.saveImage(nameFile);
+  uploadFile(req.files.imagen, nameFile,res);
 
   product.save();
 
-  uploadFile(req.files.imagen, nameFile,res);
 });
 
 
