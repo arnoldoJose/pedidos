@@ -119,7 +119,7 @@ let uploadFile  = (res) => {
   if(Fs.existsSync("uploads")){
     res.json({ message: " existe" });
   }else{
-        Fs.mkdirSync("API/Upload", (err) => {
+        Fs.mkdirSync("Upload", (err) => {
           res.json({ message: "error de mkdir" });
         });
         res.json({ message: "se creo la cp" });
