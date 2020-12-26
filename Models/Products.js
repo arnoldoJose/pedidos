@@ -20,7 +20,7 @@ var productSchema = new mongoose.Schema({
 });
 
 productSchema.methods.saveImage = function (pathname) {
-  this.img = `${process.env.HOST}/public/${pathname}`;
+  this.img = `${process.env.HOST}:${process.env.PORT}/public/${pathname}`;
 };
 
 module.exports = mongoose.model("Product", productSchema);
