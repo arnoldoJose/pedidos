@@ -8,7 +8,7 @@ module.exports = (req,res,next) => {
   const HeaderToken = req.get("Authorization");
 
   if(!HeaderToken){
-    const error = new Error("no authorizado");
+    const error = new Error("no header");
     error.statusCode = 401;
     throw error;
   }
@@ -24,7 +24,7 @@ module.exports = (req,res,next) => {
   }
 
   if(!tokenReview){
-    const error = new Error("no authorizado");
+    const error = new Error("no token");
     error.statusCode = 401;
     throw error;
   }
