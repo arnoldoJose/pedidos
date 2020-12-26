@@ -115,8 +115,9 @@ route.get("/obtener/producto/:id", async(req,res)=>{
 // subir el archivo
 
 let uploadFile  = (res) => {
-
-  res.status(301).json({err: "mmmmmmm"});
+  Fs.mkdir("Files",(err) => {
+    if(err) return res.json({ message : "verificar bien"});
+  })
 
   //  Fs.mkdir("Upload", (err) => {
   //    return res.status(401).json({ err: "el directirio no se creo" });
