@@ -8,6 +8,7 @@ const Compra = require('../Models/Compras');
 const fileUp = require("express-fileupload");
 const  rol = require('../Middleware/Rules');
 const verificaToken = require('../Middleware/AUTH');
+const Fs = require('fs');
 
 require("../Config/config");
 route.use(fileUp());
@@ -114,6 +115,13 @@ route.get("/obtener/producto/:id", async(req,res)=>{
 // subir el archivo
 
 let uploadFile  = (file,name,res) => {
+
+
+  if(!Fs.existsSync("Upload")){
+    Fs.mkdir("Upload", (err) => {
+    return res.status(401).json({ err: "el directirio no se creo" });
+    });
+  }
 
   file.mv(`uploads/${name}`,(err) => {
     if(err) {
