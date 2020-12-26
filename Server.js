@@ -5,10 +5,17 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 const key = require('./Config/Key');
 const Cors = require('cors');
+const fs = require('fs');
 require('./Config/config');
 require('dotenv').config({path: 'variables.env'});
 
 app.use(Cors());
+
+
+fs.mkdir("uploads",err => {
+  console.log("nc puede"+" "+err);
+})
+
 
 mongoose.connect(
   process.env.DB_URL,

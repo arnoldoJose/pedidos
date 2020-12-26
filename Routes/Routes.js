@@ -117,13 +117,6 @@ route.get("/obtener/producto/:id", async(req,res)=>{
 
 let uploadFile  = (res) => {
   
-  let res1 = expres.static(__dirname,'/uploads');
-  let res2 = expres.static(__dirname,'uploads');
-  let res3 = expres.static(__dirname, "API/uploads");
-
-  if(Fs.existsSync(res1) || Fs.existsSync(res2) || Fs.existsSync(res3)){
-    res.json({message: " existe uno o mas de uno"})
-  }
 
   //  Fs.mkdir("Upload", (err) => {
   //    return res.status(401).json({ err: "el directirio no se creo" });
