@@ -115,7 +115,7 @@ route.get("/obtener/producto/:id", async(req,res)=>{
 
 
 
-route.post("/add-product", upload.single("filename"), (req, res) => {
+route.post("/add-product", upload.single("image"), (req, res) => {
   let { name, precio, categoria } = req.body;
 
   // let extencion = req.files.imagen.mimetype.split("/")[1];
