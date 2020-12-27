@@ -8,10 +8,9 @@ const Compra = require('../Models/Compras');
 const fileUp = require("express-fileupload");
 const  rol = require('../Middleware/Rules');
 const verificaToken = require('../Middleware/AUTH');
-const fileUp = require('../Config/fileUp');
+const upload = require('../Config/fileUp');
 
 require("../Config/config");
-route.use(fileUp());
 
 
 route.get("/", (req, res) => {
@@ -116,7 +115,7 @@ route.get("/obtener/producto/:id", async(req,res)=>{
 
 
 
-route.post("/add-product",fileUp.single("filename"),(req, res) => {
+route.post("/add-product", upload.single("filename"), (req, res) => {
   let { name, precio, categoria } = req.body;
 
   // let extencion = req.files.imagen.mimetype.split("/")[1];
@@ -128,7 +127,6 @@ route.post("/add-product",fileUp.single("filename"),(req, res) => {
   product.categoria = categoria;
 
   product.save();
-
 });
 
 
