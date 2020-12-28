@@ -1,14 +1,16 @@
 const multer = require('multer');
+const shortid = require('shortid');
 const path = require('path');
 
+
 const storage = multer.diskStorage({
-  destination: function (req,file,cb) {
-    cb(null,'./Upload/images')
-  },
+  destination: path.join(__dirname,'../Storage/Images'),
   filename: function (req,file,cb) {
-    cb(null, `${file.fieldname}-${Date.now()}`)
+    let extencion = file.mimetype.split("/")[1];
+    cb(null, `${shortid.generate()}.${extencion}`)
   }
 });
+
 
 const upload = multer({storage});
 

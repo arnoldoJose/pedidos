@@ -5,19 +5,11 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 const key = require('./Config/Key');
 const Cors = require('cors');
-const fs = require('fs');
+const path = require('path');
 require('./Config/config');
 require('dotenv').config({path: 'variables.env'});
 
 app.use(Cors());
-
-
-if(fs.existsSync(`${__dirname}/Upload`)){
-console.log("existe");
-}else{
-  console.log("no existe");
-}
-
 
 mongoose.connect(
   process.env.DB_URL,
@@ -39,7 +31,7 @@ mongoose.connect(
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
-app.use("/public", express.static(`${__dirname}/Upload`));
+app.use(express.static(path.join(__dirname,'Storage/Images')));
 
 
 app.use(require('./Routes/Routes'))

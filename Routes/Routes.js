@@ -5,7 +5,6 @@ const User = require("../Models/User");
 const Products = require("../Models/Products");
 const shortid = require('shortid');
 const Compra = require('../Models/Compras');
-const fileUp = require("express-fileupload");
 const  rol = require('../Middleware/Rules');
 const verificaToken = require('../Middleware/AUTH');
 const upload = require('../Config/fileUp');
@@ -121,12 +120,12 @@ route.post("/add-product", upload.single("image"), (req, res) => {
   // let extencion = req.files.imagen.mimetype.split("/")[1];
   // let nameFile = `${shortid.generate()}.${extencion}`;
 
-  let product = new Products();
-  product.name = name;
-  product.precio = precio;
-  product.categoria = categoria;
+  // let product = new Products();
+  // product.name = name;
+  // product.precio = precio;
+  // product.categoria = categoria;
 
-  product.save();
+  // product.save();
 });
 
 
