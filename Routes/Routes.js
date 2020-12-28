@@ -117,15 +117,13 @@ route.get("/obtener/producto/:id", async(req,res)=>{
 route.post("/add-product", upload.single("image"), (req, res) => {
   let { name, precio, categoria } = req.body;
 
-  // let extencion = req.files.imagen.mimetype.split("/")[1];
-  // let nameFile = `${shortid.generate()}.${extencion}`;
+  let product = new Products();
+  product.name = name;
+  product.precio = precio;
+  product.categoria = categoria;
+  product.saveImage(req.file.filename);
 
-  // let product = new Products();
-  // product.name = name;
-  // product.precio = precio;
-  // product.categoria = categoria;
-
-  // product.save();
+  product.save();
 });
 
 
