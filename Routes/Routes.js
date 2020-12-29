@@ -122,8 +122,9 @@ route.post("/add-product", upload.single("image"), (req, res) => {
   product.precio = precio;
   product.categoria = categoria;
   product.saveImage(req.file.filename);
-
   product.save();
+
+  res.json({message: 'nuevo producto agregado'})
 });
 
 
