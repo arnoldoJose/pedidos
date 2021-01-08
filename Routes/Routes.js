@@ -110,10 +110,6 @@ route.get("/obtener/producto/:id", async(req,res)=>{
 })
 
 
-// subir el archivo
-
-
-
 route.post("/add-product", upload.single("image"), (req, res) => {
   let { name, precio, categoria } = req.body;
 
