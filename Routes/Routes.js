@@ -3,14 +3,19 @@ const route = Router();
 const jwt = require("jsonwebtoken");
 const User = require("../Models/User");
 const Products = require("../Models/Products");
-const shortid = require('shortid');
 const Compra = require('../Models/Compras');
 const  rol = require('../Middleware/Rules');
 const verificaToken = require('../Middleware/AUTH');
 const upload = require('../Config/fileUp');
-
+const cloudinary = require('cloudinary').v2;
+const fs = require('fs-extra');
 require("../Config/config");
 
+cloudinary.config({
+  cloud_name: "deqdnvs2k",
+  api_key: "333499587651297",
+  api_secret: "vQZ-5tTbmiHBH9D1PzXBYwy-4Uc",
+});
 
 route.get("/", (req, res) => {
   res.json({ message: "token invalido" });
@@ -110,17 +115,22 @@ route.get("/obtener/producto/:id", async(req,res)=>{
 })
 
 
-route.post("/add-product", upload.single("image"), (req, res) => {
+route.post("/add-product", upload.single("image"), async(req, res) => {
+  
+  let path = req.file.path;
+
+  let data = await cloudinary.uploader.upload(path);
+
   let { name, precio, categoria } = req.body;
 
-  let product = new Products();
-  product.name = name;
-  product.precio = precio;
-  product.categoria = categoria;
-  product.saveImage(req.file.filename);
+  let product = new Products({name,precio,categoria,img: data.url,});
+ 
   product.save();
 
+  fs.unlinkSync(path);
+
   res.json({message: 'nuevo producto agregado'})
+
 });
 
 
