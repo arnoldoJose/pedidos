@@ -9,12 +9,13 @@ const verificaToken = require('../Middleware/AUTH');
 const upload = require('../Config/fileUp');
 const cloudinary = require('cloudinary').v2;
 const fs = require('fs-extra');
+require('dotenv').config({path: 'variables.env'});
 require("../Config/config");
 
 cloudinary.config({
-  cloud_name: "deqdnvs2k",
-  api_key: "333499587651297",
-  api_secret: "vQZ-5tTbmiHBH9D1PzXBYwy-4Uc",
+  cloud_name: process.env.CLOUD_NAME,
+  api_key: process.env.API_KEY,
+  api_secret: process.env.API_SECRET,
 });
 
 route.get("/", (req, res) => {
