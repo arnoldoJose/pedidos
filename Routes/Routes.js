@@ -116,7 +116,7 @@ route.get("/obtener/producto/:id", async(req,res)=>{
 })
 
 
-route.post("/add-product", upload.single("image"), async(req, res) => {
+route.post("/add-product", [verificaToken,rol],upload.single("image"), async(req, res) => {
   
   let path = req.file.path;
 
